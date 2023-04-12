@@ -1,0 +1,30 @@
+{% extends 'navbar.html' %}
+{% load static %}
+{% block content %}
+<h2 align="center">Job details</h2>
+
+<table align="center"  border="2" class="table">
+    <tr>
+        <th>id</th>
+        <th>Name</th>
+        <th>jobdescription</th>
+        <th>City</th>
+        <th>vacancy</th>
+        <th>applied</th>
+        <th>Apply</th>
+
+    </tr>
+    {% for i in net %}
+      <tr>
+          <td>{{i.id}}</td>
+          <td>{{i.Name}}</td>
+          <td>{{i.jobdescription}}</td>
+          <td>{{i.City}}</td>
+          <td>{{i.vacancy}}</td>
+          <td>{{i.applied}}</td>
+          <td><a href="{% url 'apply' i.id %}">Apply</a></td>
+      </tr>
+{% endfor %}
+
+</table>
+{% endblock %}
